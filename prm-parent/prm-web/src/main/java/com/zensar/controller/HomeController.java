@@ -2,6 +2,7 @@ package com.zensar.controller;
 
 import java.lang.reflect.Method;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,8 +13,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import com.zensar.model.User;
+import com.zensar.service.UserService;
 
-@RestController
+@Controller
 public class HomeController {
 
 	@RequestMapping(value= "/" ,method = RequestMethod.GET)
@@ -22,6 +24,8 @@ public class HomeController {
 		return "user";
 	}
 	
+	@Autowired
+	UserService userService;
 	 @RequestMapping(value = "/user/", method = RequestMethod.POST)
 	    public ResponseEntity<Void> createUser(@RequestBody User user,    UriComponentsBuilder ucBuilder) {
 	        System.out.println("Creating User " + user.getUsername());

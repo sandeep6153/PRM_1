@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.zensar.model.User;
 
-@Service("userService")
+@Service
 public class UserServiceImpl implements UserService{
 	
 	private static final AtomicLong counter = new AtomicLong();

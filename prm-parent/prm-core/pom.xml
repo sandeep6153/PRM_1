@@ -6,6 +6,7 @@
     <version>0.0.1-SNAPSHOT</version>
   </parent>
   <artifactId>prm-core</artifactId>
+  <groupId>prm.core</groupId>
   <name>prm-core</name>
   <properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
