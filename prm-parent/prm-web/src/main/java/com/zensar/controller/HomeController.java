@@ -25,6 +25,7 @@ public class HomeController {
 	@RequestMapping(value= "/" ,method = RequestMethod.GET)
 	public String getIndex(){
 		System.out.println("Hello");
+		System.out.println("Hi");
 		return "user";
 	}
 	
