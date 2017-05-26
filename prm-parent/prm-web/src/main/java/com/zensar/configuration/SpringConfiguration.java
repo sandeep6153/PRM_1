@@ -10,7 +10,7 @@ import org.springframework.web.servlet.view.JstlView;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = {"com.zensar.controller","com.zensar.service"})
+@ComponentScan(basePackages = {"com.zensar.controller","com.zensar.service","com.zensar.dao"})
 public class SpringConfiguration extends WebMvcConfigurerAdapter{
 	
 	@Override

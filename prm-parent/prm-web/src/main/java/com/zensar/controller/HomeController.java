@@ -1,44 +1,52 @@
 package com.zensar.controller;
 
-import java.lang.reflect.Method;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import com.zensar.model.User;
 import com.zensar.service.UserService;
 
-@Controller
+@RestController
 public class HomeController {
 
+	@Autowired
+	UserService userService;
+	
 	@RequestMapping(value= "/" ,method = RequestMethod.GET)
 	public String getIndex(){
 		System.out.println("Hello");
 		return "user";
 	}
 	
-	@Autowired
-	UserService userService;
-	 @RequestMapping(value = "/user/", method = RequestMethod.POST)
-	    public ResponseEntity<Void> createUser(@RequestBody User user,    UriComponentsBuilder ucBuilder) {
+	 @RequestMapping(value = "/register", method = RequestMethod.POST)
+	    public String createUser(@RequestBody User user) {
 	        System.out.println("Creating User " + user.getUsername());
-	 
+	        String status="";
 	        if (userService.isUserExist(user)) {
 	            System.out.println("A User with name " + user.getUsername() + " already exist");
-	            return new ResponseEntity<Void>(HttpStatus.CONFLICT);
+	        }else{
+	        	userService.saveUser(user);
+	        	status = "User Successfully register";
 	        }
-	 
-	        userService.saveUser(user);
-	 
-	        HttpHeaders headers = new HttpHeaders();
-	        headers.setLocation(ucBuilder.path("/user/{id}").buildAndExpand(user.getId()).toUri());
-	        return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
+	        return status;
 	    }
+	 @RequestMapping(value = "/checkLogin", method = RequestMethod.POST)
+	    public String checkLogin(@RequestBody User user) {
+	        System.out.println(" Inside check Login");
+	        String status="";
+	        userService.checkLogin(user);
+	        status = "User Successfully register";
+	        return status;
+	    }
+	 
 }
