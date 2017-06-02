@@ -2,7 +2,8 @@ package com.zensar.dao;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
- 
+import org.springframework.stereotype.Component;
+
 public abstract class AbstractDao {
  
     @Autowired
