@@ -1,4 +1,4 @@
-package com.zensar.configuration;
+/*package com.zensar.configuration;
 
 import javax.servlet.Filter;
 
@@ -10,7 +10,7 @@ import com.zensar.configuration.SpringConfiguration;
 public class SpringIntializer extends AbstractAnnotationConfigDispatcherServletInitializer{
 	 @Override
 	    protected Class<?>[] getRootConfigClasses() {
-	        return new Class[] { HibernateConfiguration.class };
+	        return new Class[] {HibernateConfiguration.class };
 	    }
 	  
 	    @Override
@@ -30,3 +30,4 @@ public class SpringIntializer extends AbstractAnnotationConfigDispatcherServletI
 		}
 	 
 }
+*/
