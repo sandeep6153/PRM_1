@@ -4,6 +4,11 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 
+
+
+
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -12,6 +17,7 @@ import com.zensar.dao.UserDao;
 import com.zensar.model.User;
 
 @Service("userService")
+@Transactional
 public class UserServiceImpl implements UserService{
 	
 	

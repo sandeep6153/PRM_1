@@ -22,8 +22,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 import com.zensar.model.User;
 import com.zensar.service.UserService;
 
-@Component
-@Path("/")
+@RestController
 public class HomeController {
 	
 
@@ -33,9 +32,7 @@ public class HomeController {
 	@Autowired
 	UserService userService;
 	
-	@GET
-	@Path("/user")
-	@Produces(MediaType.APPLICATION_JSON)
+	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public User getIndex(){
 		User user=new User();
 		user.setId(123);
